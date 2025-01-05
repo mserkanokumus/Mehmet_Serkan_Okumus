@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="n11.com - Load Test">
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController">
+          <stringProp name="LoopController.loops">5</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <stringProp name="HTTPSampler.domain">www.n11.com</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.implementation"></stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="User-Agent" elementType="Header">
+              <stringProp name="Header.name">User-Agent</stringProp>
+              <stringProp name="Header.value">PostmanRuntime/7.43.0 </stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">*/*</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Cache-Control</stringProp>
+              <stringProp name="Header.value">no-cache</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Postman-Token</stringProp>
+              <stringProp name="Header.value">297dbd0d-42b9-4e8d-ba26-0ab5d26e405b</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Host</stringProp>
+              <stringProp name="Header.value">www.n11.com</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Encoding</stringProp>
+              <stringProp name="Header.value">gzip, deflate, br</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Connection</stringProp>
+              <stringProp name="Header.value">keep-alive</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Cookie</stringProp>
+              <stringProp name="Header.value">__cf_bm=7pJFG_NKVgmPUVDPEyudW9UtV7Nw0zpiNBRr8SHgZBs-1735905520-1.0.1.1-F3gdzyTOCnJ1WcUviYK8UZ_QDEKiT4iZRmZ.LGV_K9K30OkC7oHPzeEgCL4_Y41SVU8l8Dn5qI92wfVwZ1LIew; _cfuvid=fBQVliqT5IxEZDumYUIYw4bqwUbEmFkahmdl3Xnn_no-1735905520283-0.0.1.1-604800000</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies">
+            <elementProp name="Cookie" elementType="Cookie" testname="Cookie">
+              <stringProp name="Cookie.value">__cf_bm=7pJFG_NKVgmPUVDPEyudW9UtV7Nw0zpiNBRr8SHgZBs-1735905520-1.0.1.1-F3gdzyTOCnJ1WcUviYK8UZ_QDEKiT4iZRmZ.LGV_K9K30OkC7oHPzeEgCL4_Y41SVU8l8Dn5qI92wfVwZ1LIew; _cfuvid=fBQVliqT5IxEZDumYUIYw4bqwUbEmFkahmdl3Xnn_no-1735905520283-0.0.1.1-604800000</stringProp>
+              <stringProp name="Cookie.domain"></stringProp>
+              <stringProp name="Cookie.path"></stringProp>
+              <boolProp name="Cookie.secure">false</boolProp>
+              <longProp name="Cookie.expires">0</longProp>
+              <boolProp name="Cookie.path_specified">true</boolProp>
+              <boolProp name="Cookie.domain_specified">true</boolProp>
+            </elementProp>
+          </collectionProp>
+          <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+          <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
+        </CookieManager>
+        <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Test Cases"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search with Maximum Results" enabled="true">
+            <boolProp name="HTTPSampler.image_parser">true</boolProp>
+            <stringProp name="HTTPSampler.domain">n11.com</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.path">/arama/tamamla</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="keyword" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">keyword</stringProp>
+                  <stringProp name="Argument.value">a</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="97">a</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+              <stringProp name="DurationAssertion.duration">3000</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search with Maximum Results without resources" enabled="true">
+            <stringProp name="HTTPSampler.domain">n11.com</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.path">/arama/tamamla</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="keyword" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">keyword</stringProp>
+                  <stringProp name="Argument.value">a</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="97">a</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+              <stringProp name="DurationAssertion.duration">3000</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search for &apos;Apple&apos;" enabled="true">
+            <boolProp name="HTTPSampler.image_parser">true</boolProp>
+            <stringProp name="HTTPSampler.domain">n11.com</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.path">/arama/tamamla</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="keyword" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">keyword</stringProp>
+                  <stringProp name="Argument.value">apple</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="93029210">apple</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+              <stringProp name="DurationAssertion.duration">3000</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+          </hashTree>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+            <stringProp name="LoopController.loops">10</stringProp>
+          </LoopController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Huge search requrest for &apos;Kablo&apos;" enabled="true">
+              <boolProp name="HTTPSampler.image_parser">true</boolProp>
+              <stringProp name="HTTPSampler.domain">n11.com</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/arama/tamamla</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="keyword" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">keyword</stringProp>
+                    <stringProp name="Argument.value">kablo</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="101804111">kablo</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+                <stringProp name="DurationAssertion.duration">3000</stringProp>
+              </DurationAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+            <stringProp name="LoopController.loops">2</stringProp>
+          </LoopController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Invalid search term" enabled="true">
+              <boolProp name="HTTPSampler.image_parser">true</boolProp>
+              <stringProp name="HTTPSampler.domain">n11.com</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/arama/tamamla</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="keyword" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">keyword</stringProp>
+                    <stringProp name="Argument.value">½$&amp;/*&quot;</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-444925443">java.net.URISyntaxException</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">true</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+                <stringProp name="DurationAssertion.duration">1000</stringProp>
+              </DurationAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Invalid data submission" enabled="true">
+            <boolProp name="HTTPSampler.image_parser">true</boolProp>
+            <stringProp name="HTTPSampler.domain">n11.com</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.path">/arama/tamamla</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="keyword" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">keyword</stringProp>
+                  <stringProp name="Argument.value">odyxwqtegv+oufqcxfqnr+iopgufjmsr+nwjovtzdbx+nxrdlporcn+aptixrqtlg+uiaehwkrhf+ghlsyqmehx+unmfnxnidj+rfjgtmvyeo+scbzqmdetf+lebbmjyksz+peupmznari+oihkpjlpai+kqflawfevb+gvulwikqjf+scdujfvasy+izhzryyoua+gkefdylpia+cmqtcbbqfp+yqeksthrid+jljowasfoo+ylthooudeg+atewwwbqsc+rxgnmmthfe+prggjgcjhd+irhcytfdua+msmbkxeepj+wnfpdbkkwh+tvopqfkcfj+misrcyeqyx+cgepaxljik+vdwqvgfobf+imkqbtpixj+hyzdrblgvm+vhgagxjysk+byvkityloc+guoiudrzzt+bvokwekvrg+epfaathiej+ehycwaknpw+vqnoiwmiqm+krvtrrpkrm+wxcvyqiqxw+lmrgzoshdr+yxdkpnaydc+sijyjcrkxb+mcffnlmesb+jriokrmccq+ezsslkwyrz+rpwazpxccj+mufktdsoww+hjypgfsxew+queaigyotw+twhtrtuwda+rktedrzdeg+spudylswds+wykkymbndn+lhbwiglkgc+vviywyhmpo+fzkzizfoau+sevbxmreqd+qzsorzgksp+kqriismdvm+jhgradurwg+xwvyqxmsoa+rjzgylgyxc+xrfqaoyfpz+ezdhtslumu+zsfgtalggc+jknctrmdhy+cvxifqsvuu+jihplasqrr+uzyumwntdm+libdtuffws+acuwnwxcnt+jgnoywtlqn+joakjsmqzv+mxshrpchoe+eciberxzfo+inomfjyqfr+mqkzglctfb+vvdmrefsfa+qgbqyjbqhh+hdoradzhfc+qhaowpmtrb+bynbbjvovd+hcjmpsekuo+aezvivvnkl+xzpgfxfgda+vimooylswx+ehwptpqcwy+yzieiwoeut+fbwxqhadmd+wjhbqttrwj+uphgsqapnl+mnbjnetqmo+xflovlkkul+fagrspwyzj+uharqnwwjm+lozqygpzlx+rptuadinjf+glbthdwokm+dzdluwupcp+aednalkhdb+kwjpngdyec+krwggimxus+cvpuolzvfx+rnavhlmydv+zvlgrjkoub+mbuwioutlj+acyerrdlbm+akuzugykxg+bsjebwzfay+xpcsyhabhc+uyoestfkjw+nptbwjluau+oarirhelay+avmtaoisrk+efjpprsknn+ovrxzncdkx+ejrezzctuk+socntbeost+bfcyxqwzhi+rkprbbalrz+xdwrmqezhp+kcugdeiayl+yyhaikblpx+lxfhiimiae+wxchnsknsq+htiytvcovd+qnnsadujhi+ytjbwmqqzp+krreqcftff+lyhtkqttcp+aqsxhalxqs+syyevbbnqa+gzrpwibdun+pxbkeydahf+ifaasgepqq+lssotugxoc+kzyvhpmfcr+azphduvdza+ekyfxckqfh+ynzevmrmmr+stygxixghl+yuiedaypvx+nwdjzjspsa+ovvaljkobv+hmdgnhxpsq+cgvpeilrhx+dzccadyhai+huxtrwnmwj+tfhpgiedao+aqlzohjngx+hnbsorjapd+ddosqzcjdm+xpngkqsapq+hroftahxwi+yahlegqzbn+zlsunjszhx+doguajuovv+jmtkfjjbsn+vsbnbbgujg+tzxpaksmqx+dgojwtsvyu+oygyacirml+jigdwtzohe+zpeszdjymi+hguvncezmz+ronptaozph+hkoigxwkpq+rrasvgyamd+suxumnywvf+yyddzksmut+owoijbhzzd+enhwrjfhbb+hqgqxazfpl+mfxfvochti+xzuicrnnci+ygpnfsmwzr+wrmbqxszll+ousrtgsuqw+iwcdzitrwy+fdwnlzjmfx+vdggqaucfy+snbjlxawnz+vfflaljalz+udihtumgyk+nxgjeopniv+aiazilwlpx+ggzlxvynbw+kehssqtpia+nfewgizsgj+czeolfqodv+uolvwpmgkj+znrcdvyzvq+beuxyzrkpx+sxzzohvspb+zndjugjcpw+cndumecwes+mbgqinksqc+zznbxnwwoh+dgmaqlzjlp+fxydknwkhm+vgzvrhvgjq+ntibwjcbby+axqttzqpsg+inkgicxrtm+julxuhdput+fhbcxicbpj+gjthumalte+rkfmrgdkrl+szfbkwirfk+lajbrpeaey+sxdkeecwlr+lztexrafkq+sadwkiblcb+rxywgzosyb+mabyohqkcw+pnvbqvteqm+wgoszcpzcs+tpxmsheunw+szzhgrbywk+qfwcxqajye+weqvaywoxf+aiutgnhlls+uesebzyniv+buydxuvzfh+hgreosjgmz+lsnhaycstu+wodifzsmgr+iwdnpvbbtn+gtieolevsx+okffqwytzs+vouszsdmiy+atfrgnctmj+ddpgnotgbv+aihaxusggv+zumffyqyql+cxsplytsyy+yynscrmaea+ehjcxawcso+xbgopxrhvc+pgvvbaqqlh+pasxjkcdok+tbkqkqnyrr+yirgrfmkws+ykcmhjelsu+jlogsrwcqd+iewhddfjvc+azcbflkqtu+krcmcjashx+phyvalpfba+atovbqqhqf+mdeqfbqjss+voqtusbddo+myswmpzheu+llifhebbsc+cofyfvzfrc+nrmhyodzcz+erhlmkndqa+pnbyzeetsb+jlzhhlaadq+gqnmbyzohs+yjyknzicjo+qvsygebnrw+yjpqskppdb+oxtcqvpzmz+taovgrvkjs+mumslvqgww+atqbnpbxoz+jzxbsqdnzr+eqnpzvheeq+zdlxwbepxc+ldsmqljvma+psiseppcqo+vlkrjylqee+yhgeztsral+akmfilenkq+zctcrtmdto+ajwgpdijzl+qsjbdmnxtj+hewdspbapm+ecjynaxxjk+ilhpnuglen+pmtgwacbqg+jjkxjqhjed+ahqvyfwhnu+jaqbgvhtca+sjdvpcixts+xfajefadpg+brxwvyldet+zcizlokhyp+ifkynhepsm+pmdzempnlu+jlrirbbmcw+aspeliofnn+toovtkgmkj+wsjryijago+dnognnsgjk+hnlcukdbzz+ikbvrihtcz+jptlwayzqc+dwsicpvzov+kwpuvpbmit+odbedmvhsx+lixfqqufrb+mrsijxpaew+gddbqetrna+abhyewjbtl+zqhsxrdeqh+pwezdzbhqe+kkiwqszple+zrgovxdpvf+mysaeyjjrk+avqpfrozrv+qteubenidd+yrhtskvrob+egajlxiqrr+sjzbicshsz+akwxvbpgdp+twbfngwefe+qukqnylqgv+cttkkzymbz+xoqdovyveo+ordfesfabd+hbdfpzawzi+ithptxspno+oqqmmohbbs+lzejmniooz+wspreqkygx+hxaguyzqef+swoagfoxxv+rppkjwxhsb+zfkbltyaae+bnbnybbdyx+jjcvakgwcn+jttvinqtuh+kjkbicxdmn+jgqdailwvq+zdbleorpgq+kmbhvcrepf+jqxigvsmin+smysmdujol+ziycwhnklz+vicongleim+dujzzxosrw+tecnwidxvm+pqinymtwca+vgaoquhksm+kvyzewtnkf+hhplqhvycy+cbtkrkmpda+nvjpcyntrk+axlldhssfh+afzqdovzpp+ptbdrlhwui+lbmlfplkgc+fcnhauohpa+xyzvmykbkb+rccwdckbue+wekprattbv+okyiixmkpc+nwycrosvvj+pkhbtlxbea+feqoaqkzhm+qkpqmijwyx+vfmxnhypxx+zbefrestov+kygcgeamoa+lxpvnjuwhq+kkjpbxjvrk+pywtgvtrab+bfvtmynfve+bldujkezeu+hfthytnyye+pnlqvpoyrs+ikzywvnrom+obautjrand+onzusztwhe+lxjdtffmor+bfpkkvvkgu+atxjnnrwaa+tfqxfehjfw+siotdeienv+erbriebqjm+wtdrgynkzy+gisipyanfm+vvpjzpqgui+tcynxubivk+lnbnsgcfdn+zscdotqpzb+ukpzedseou+nvdfqbdvmy+lvpocrezub+kulahzwtya+dkallckwhf+xhknfczpdn+wbznrhqnxf+rffxwffwob+qhcpcwzjvl+gifibwyiin+crfqgqthmf+amwmoszxag+uftsxjdxkp+rskoivilhy+klciunypab+qdggufeiqb+ttwhfkjzvd+jzufgopzlg+kczfagpski+zsefdfrltk+ytgyjjlghy+dodrfcggzn+jewwlbddnd+tcyvvswikk+esfexfexuy+jgkqaabztz+gbafqchmcn+eebukxrstd+yfscdywugh+mzvlqzibnw+eorptdvxuk+offzkkmuku+rcvhfvfrgf+itsgywldfz+lmgqkkgose+nufhifytxx+yhoncjobxh+bxaogqjyka+oqykekvovx+nhwnbwtkvg+whgzcwsala+ngvpnddnze+ihdcxvssee+ghtnyvrokd+iijtztmxcf+ifjgytomuv+jvezvpriqh+ujjpgpaxbr+mmooqtoqek+ynlsashryu+adxiwygqtv+zfzaegmjog+borxeamwgv+uzhiccwwax+vkpnnpvpvu+vuujafoxur+nilugxuinx+iczjrsstuo+kfvefpktzy+tunlgodvsj+bhrogiltes+bxpvnwnbya+uhthwbxyqw+phppsfosai+qxqrljtusp+udxnkjlvnn+byltajokpe+ejgnybbwph+itrojbywda+wsqannilhz+tskmtiebie+jfsshjfype+ugrglwtwpq+glknymbmue+fjfgbjabgb+szdzrltzbx+jvqmoewwfs+pzidrwdrow+muudjdvcez+hzzxoywujj+evxrubrhdz+kzlbtlscdp+rfusrxjwip+obdgynpvyb+lshmwqwpej+fudwhvliri+tpybkztzie+jzvyovgvsy+zkmlxrpltq+rpnleridyo+bukbczrygl+acoewkkvzn+pxfnfrnxbg+jrvwvdyilb+touyfxpxqx+gvucggmgmg+avpwvwmiqr+dnugguaygm+fcvypxizuv+loohimojef+qkqwyllebq+kgdukjsfpi+uekwzgaqzs+cewiprdhlo+vjbfdfjnvq+umbreajuxt+xgudfbffir+bmhtykdwko+nhdxoyzkpp+mxtgscfjgl+mjebwpmlbw+dzshxkymhj+qjhijvqoqk+szijshusgw+fqdpgvfffh+isrgfwngfd+wccdlsilqd+ubdxprpzjk+oiiptuosrv+tskavvtgvq+ikvgfcjjyj+xuwqekatjy+pnjzcoefvw+lgtmahzyfx+pykmrapttn+bjiwzxvpbb+jvwnmbvica+hjasroayio+jwpfzitvmq+qktkxdrlli+hcbuwjdtxi+ncrbbarqda+tvgoaccngp+pfxtldligi+ihrbpohbwr+amqdiqmozg+vmqfvqsinq+bvcgtgdqml+zznwgcdqqw+jlafqxgoxj+mikomfjbuf+pshzekdkfk+voqnyzcgpc+idvbkpvhca+aldnebljix+lilppacssi+whmjsywlxm+dvdzvtzshu+kyteslnuhv+crkchvkzpa+fysvtrzuso+xecpvujjhb+quznyqyqes+ezlefnsxtn+srwcmbhkic+cnpuqxdeox+bfubdvmyoq+dfrpdoefvi+mrvtqgllwb+owpasmomun+twkcpxfpnw+nmbbbufyva+vzhxjwinns+cizvmazovg+lnmzpzkgpz+cyoaeipnxl+vujloykzup+jpoduqsjae+viiwdqwohl+uxgwbeaqtp+amebowumsg+fdqthhtxkj+hltzsdrpyj+lcbrlzzpbj+golmexsgcj+twxrgsilnw+xgiuvbzeeg+tiobvnmyvy+pnfklpegdk+cvkkrlfqyr+lflszxjtfh+ydbxggxijv+qgeihwdtia+mnzgsbcdib+kfrgetwful+ntqyfbhugf+cwedvpwytf+qgpxflcbdg+yhpdffmrpb+evnikbcuno+cipwldkhou+eosnujwsxf+avguvungns+fobojbstrh+bmqctpaniq+uaxmhfdcss+ofuowqssgc+znsdfzjxot+kozdsfdbop+yjypvuudov+cqtixumdgn+gqqkoaxsqm+agotgxyknv+phelrqtkjh+dmnxalujgv+fupruzhfhe+ayofuzjptv+bnmdarhzhj+immylcybzy+qsinllvrmk+xccaasiyoy+cgaxcwsdcb+sqdyxjkpoo+rswwycpnoe+rsanzmceql+bdanjmtjbm+oeatmxafjk+cbhhovxjpl+ntlpdpnner+pjzblfiwgd+nbpagmdqlw+tfhojmovfq+fotngcwvic+kkpghwoebb+jsngxnjdrj+peppelhepy+ytcvbyjqgs+wzxzspbiop+igjlduwbit+qljckdmlpi+ftgrllrtzj+zzotagvdcy+dwjsqsbplw+ahnxjsixhg+zpindsvldu+swyssspcab+rypfblgqia+meurmqxoyi+wsjwadckkg+srmfsnustb+swvddmdatm+ozibunavlo+svuswpciuo+qauslmoffz+jslrlliwpd+lgtiqkeees+adtoibtzok+xizdwuwxmf+cbfwsekcle+zzgqrihupy+rnkpfgsxgm+hffdjddopv+pfrdqyewgh+ogcutkkthf+yzklyoityf+bcpqqgjkkr+mumjdjtvqw+rezovtoyyk+aflpgvihaw+dcsniwgfci+qsckfuehfs+qtrwzqipwk+nitzjtiecg+ibthpvsrkg+kwniywwogb+mlvkvmybav+lfgvzzwfas+ulelkbqpmh+dfcpahglsq+tradhkgdha+wmwzzrtwub+vjtmupcvjy+nbaioxkall+yuzypnrots+lvmjxzgihb+djmgmrqbsd+zibrunvwus+cufzcsvqfb+gkqfjojtns+atvvuokziv+scccdeydrd+yjyfzlalih+bnbfqtovhm+tdehrntbgr+vjfsvbsgoo+zjfxhsxdeo+uhdiezihpt+glwzeglqks+tnpcrdoagr+tqpyjjboxb+kfvewjbbfi+ngghusosdh+gmvpfuudmr+xdzovxxklr+ahythbbonb+krlcjcsobn+jitowzpdws+cabreuvjzm+nmvfrpnvbn+iodsaupfys+nskeebzerb+wljwqhzuxz+iguhosfjgd+qlkwnpvtpj+mxklftflsr+rjduavtvqj+boyrgnwtyp+fqmtpungbi+dormpjvyla+eppepylqdz+pscyvjltei+gpnihiejdh+rpmtubqupx+pmcqkxqyvr+hbcokjwyev+iwqyceetgn+oowvbtxgnd+niumtuzelf+dietbbzehg+sdsufuqeas+gaybzvnvxy+igadoxazyu+icbcyxygxh+rvkhqdtqee+ugddnugkzv+lkgddpnfor+slqjcpdfsj+umtmavtyuz+tbebkbbcyi+txhsuguuao+ghheyyqrox+lbzzomrcpq+uweutemmxk+uiaeqlvrde+cttyeifbxv+iksdcxvxvq+bsypzneqze+yajmczumbp+uqcrolvoss+thrkyddlmj+jlcfngzzhg+mzcvtuhmjy+brisdxpnzr+tvmhukfczl+ygiziijikr+ituwdohpso+wqelxoojzs+vymjwyaqxq+uroowklxlw+fvhuovwjuv+hqgqammibz+udbfquykia+cpwpdkfgcm+dslxdmgqnn+qkcndmngfi+xzdsootgyu+khrveooxbi+atlysoxozl+fsjpqvzkfc+ofqiafnqzu+tfkdfababq+yycqqhtzxw+ouokhamlli+eizzprixsd+xfukownomr+tcqchykvjk+mipuiabhge+ypfywzyylv+iujpzcpnga+fdhgtjcydf+vaemozhcnr+vjhaostfsz+lizfovkubx+zvbrsbgrgn+nwrragecsn+zoaxljhgvg+qhgtnwzhwi+wxmbwgmnob+nwvgugyhnl+mteaklkmwy+okjltbioxt+rnsxrljkvo+diwogahynv+wddzbxpcew+kdcxbjlkss+ccfzcqsnbo+ibnkdipcno+vculvipdbx+ntinbqtiuw+rkwmkiadjz+rpxmbpsybf+vqhfkbjaev+ytsgpkemcl+bnsbyxtdmu+xwijddnylg+thwposmvxa+eumepfgspp+znsflbwlre+budxdoqtjh+pqhkhlbitm+uahdteieit+uvlaagcpxy+humtvwpqdm+wbfcyvmjdb+itfzfkqhlr+eismzjcnrn+amnvixcgwg+bkexfbudap+duphkpsono+jlijydislf+poqsurlxdm+eefvndmdap+zetuvjjmwm+dfqnervjkc+zipymfubgs+islebzccoc+oowohvefty+myohrqxsqr+sucjxsejyq+fjzqbvfbnm+ollliuijjz+dgfrbosxtl+hpwcwitshp+ctjlyymvln+wbszgkghfd+ugbhnqbfec+yxxfutdgyr+jdjcjrsitl+zymnzlmakc+mtpgovivkn+sgcsmxlerk+zyxdvcdeai+oqbeptelpk+pfooctmjzp+kyvazutbiu+llpockwlcf+gvjsmocurx+fnqpuzixdk+kpekwkkeqh+cuzijulmai+wliseefoky+vqjtolfrbv+ibtqxllgyi+owvbmnkamf+zlzbdidwyh+niellmnogi+spdhegyirm+brrbxowyyx+cxmzmilirz+dnodxrzuzy+ppsbmzgtww+wyzvqexvmz+sujqwnvbgw+mmjbvmljex+abvcsgwhvw+rygqylpiol+wnhxxkgyrp+zeadvbeiwm+eqbcnxnvpw+rovqadrjjt+xhvhyitlqp+kbguihgijn+extjaxysyk+ifphqmmjnq+kvdzntxgil+ljrpfaagza+utwbjawdeg+ckryeflpuu+uzfmtvabxy+yvpxmfnfsv+sxcrftkdbs+znxxixqfrj+kghziwivzh+czsvroibpe+dzufycqxtf+ibtnxzekqj+pvadmhbnzx+cxvxkkhilr+dthrtpdqzo+pyjscuealj+blkdkbtkxs+fsdwetfrbf+ilwvvdtvdd+jtoveznpii+ifnirrbqot+dxdauemanv+dupniggyft+qpndulxnxk+pnjtnrjdyj+vrggbjugva+qpfpkazjqx+pxorlmdyzc+onfbjjfzdi+kecxwnhzwq+nnsmnttagl+aborlxcpkr+tyshrpmhau+ivlajnxosm+wcpauzxacz+pkmlsvmrch+tqnaatzbdt+zushbcykto+evriadollv+drhaiandey+oqrxzncvpp+ynpgngjptb+odfcsbugho+obrhsyovuo+zrywugzcuf+emulzvdovy+uiqvnkoxav+iipnjpzatk+eaptdiqdsw+ncyxfngqhi+mkwogvfmbz+difxcsfwhx+ldajreplzm+cpwmktncmk+xzoqfbcvif+gbcixuxkxn+ifdyvsswke+rnnvpvmrvp+uaarmxqddu+wzogekcyuw+miijkiloha+knozjnmfsl+flyuwdajre+opnlogcqru+obvrwdvcjv+gqjvtiyorn+fhzwwefjxl+cyfkksdijc+fyokmzxewu+fjbcotpkfi+rhqyxhdqwa+dgeyrtzxqt+tzrqgpnart+ouearnxnlx+tqspaougkp+cyggpknmcs+cdaxmnjctc+mmnihwfqeo+vwmwcaomnf+grnewbyvei+xymegjpwfo+abxigjjesx+kidanvimxl+dclyvfgvlb+wvgnfzppww+blllwhwevw+qyaindvgwp+szvxeyckxm+ncwkkgrykr+ugmozervvn+esxiqiavje+xqpmgdtmur+zywirsrisn+ihgkaagger+dkelthjugh+ayndgravcw+okxlgzadtx+qsgjjkkkxu+rniobegadf+enmpugztbp+golhdbtcju+xeqwiznxcp+hvcvsnpqbf+rhllzeccis+mxmujugcsa+jjlenbouya+injpvydpml+kyaqnncgab+semhgkietk+dhliozqtzj+jzcmkfkxgb+klqldqlgqp+emyacrhoei+hzwfargydt+njjrtqbxsz+jnrljwxsnm+albiepigar+tdjunmsywq+ghdmryhmkt+gmsazucunw+bbhgyijqrz+zwfwiyskyd+pkwfskttal+frfgydnrmg+bslkygntoy+mapuvptjpd+xuvyjytcuu+gxuvahrjnq+svxuhdlkhb+fwzzcsblgi+qiymxbheqm+fcrnjmpcbq+yknhgsotnx+omeakhfmoz+qkbbtjjjtu+hrwugakzav+ncbtuoznhx+vejvsuzzot+opjzslvveg+mcqvxvecrw+ggafflvspe+sicgavlkdf+vllxfptnhy</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">true</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1841400879">N11-Status</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">6</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+              <stringProp name="DurationAssertion.duration">1000</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Empty search data" enabled="true">
+            <boolProp name="HTTPSampler.image_parser">true</boolProp>
+            <stringProp name="HTTPSampler.domain">n11.com</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.path">/arama/tamamla</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="keyword" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">keyword</stringProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="52469">500</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">true</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+              <stringProp name="DurationAssertion.duration">1000</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+          </hashTree>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+            <stringProp name="LoopController.loops">5</stringProp>
+          </LoopController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Timeout test" enabled="true">
+              <boolProp name="HTTPSampler.image_parser">true</boolProp>
+              <stringProp name="HTTPSampler.domain">n11.com</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/arama/tamamla</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="keyword" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">keyword</stringProp>
+                    <stringProp name="Argument.value">timeout_test</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="49586">200</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">true</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+                <stringProp name="DurationAssertion.duration">1000</stringProp>
+              </DurationAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>false</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatGraphVisualizer" testclass="ResultCollector" testname="Aggregate Graph" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
